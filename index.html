@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Club Vision for Africa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Roboto', sans-serif;
+        }
+
+        :root {
+            --primary-red: #13aabe;
+            --dark-red: #dd1b65;
+            --light-red: #f8d7da;
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+            --medium-gray: #eaeaea;
+            --dark-gray: #333333;
+            --text-gray: #555555;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            background-color: var(--primary-red);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .logo-text h1 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .desktop-nav ul li {
+            margin: 0;
+        }
+
+        .desktop-nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .desktop-nav ul li a:hover, 
+        .desktop-nav ul li a.active {
+            background-color: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(200, 16, 46, 0.2);
+        }
+
+        .desktop-nav ul li a i {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--primary-red);
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: var(--light-red);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 80px;
+            left: 0;
+            z-index: 999;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .mobile-nav ul li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a.active {
+            background-color: var(--light-red);
+            color: var(--primary-red);
+            padding-left: 30px;
+        }
+
+        .mobile-nav ul li a i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        main {
+            min-height: calc(100vh - 180px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Styling */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .page-header .container {
+            position: relative;
+        }
+
+        .page-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Home Page */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .slide {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(200, 16, 46, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 700px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .slide-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-control {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-control.active {
+            background-color: var(--white);
+            transform: scale(1.2);
+            border-color: var(--primary-red);
+        }
+
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .slider-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav-btn.prev {
+            left: 20px;
+        }
+
+        .slider-nav-btn.next {
+            right: 20px;
+        }
+
+        /* Info Cards */
+        .section-title {
+            text-align: center;
+            color: var(--primary-red);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary-red);
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .info-card h3 {
+            color: var(--primary-red);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3 i {
+            font-size: 1.8rem;
+        }
+
+        .teacher-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .teacher {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-red);
+            transition: all 0.3s;
+        }
+
+        .teacher:hover {
+            background-color: var(--medium-gray);
+            transform: translateX(5px);
+        }
+
+        .teacher-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .teacher-info h4 {
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .teacher-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .specialization {
+            color: var(--primary-red) !important;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        /* Approval Section */
+        .approval-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-left: 8px solid var(--primary-red);
+            text-align: center;
+        }
+
+        .approval-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .approval-content h3 {
+            color: var(--primary-red);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .headteacher-signature {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .signature-box {
+            padding: 25px 40px;
+            border: 2px solid var(--primary-red);
+            border-radius: 8px;
+            font-weight: 600;
+            background-color: var(--light-gray);
+            min-width: 250px;
+            transition: all 0.3s;
+        }
+
+        .signature-box:hover {
+            background-color: var(--light-red);
+            transform: translateY(-5px);
+        }
+
+        .signature-box h4 {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Activities Page */
+        .tour-updates {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .tour-updates h3 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .update-item {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-red);
+            transition: all 0.3s;
+        }
+
+        .update-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-date {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .update-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .update-highlight {
+            background-color: var(--light-red);
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .activity-img {
+            height: 200px;
+            background-color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .activity-content {
+            padding: 25px;
+        }
+
+        .activity-content h4 {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-tag {
+            display: inline-block;
+            background-color: var(--light-red);
+            color: var(--primary-red);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* About Us Page */
+        .club-leaders {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .leader-card {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 25px;
+            transition: all 0.3s;
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .leader-img {
+            height: 180px;
+            background-color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+        }
+
+        .leader-role {
+            color: var(--white);
+            font-weight: 600;
+            margin: 15px 0;
+            padding: 8px 20px;
+            background-color: var(--primary-red);
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .leader-card p {
+            padding: 0 20px;
+            color: var(--text-gray);
+        }
+
+        /* Terms and Conditions */
+        .terms-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .terms-content {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 25px;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            margin-top: 25px;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .terms-content h4 {
+            color: var(--primary-red);
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+
+        .terms-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Gallery Page */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            height: 220px;
+            background-color: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(200, 16, 46, 0.8), rgba(156, 12, 35, 0.9));
+            opacity: 0.7;
+        }
+
+        .gallery-item span {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 0.9;
+        }
+
+        /* Contact Page */
+        .contact-form {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(200, 16, 46, 0.3);
+        }
+
+        .btn i {
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: 70px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-links a i {
+            color: var(--primary-red);
+            width: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .header-content {
+                height: 75px;
+            }
+            
+            .desktop-nav ul li a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+            }
+            
+            .slider-container {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .header-content {
+                justify-content: space-between;
+                padding: 0;
+            }
+            
+            .slider-container {
+                height: 450px;
+            }
+            
+            .page-header h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 400px;
+            }
+            
+            .slide-content {
+                padding: 30px;
+                margin: 0 20px;
+            }
+            
+            .slide-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .page-header h2 {
+                font-size: 2.1rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .info-section, .activities-grid, .leaders-grid, .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-card, .tour-updates, .club-leaders, .terms-section, .contact-form {
+                padding: 25px;
+            }
+            
+            .teacher-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .headteacher-signature {
+                gap: 20px;
+            }
+            
+            .signature-box {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                height: 70px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .slider-container {
+                height: 350px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .slide-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .page-header {
+                padding: 50px 0 30px;
+            }
+            
+            .page-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .slider-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Active page indicator */
+        .active-page-indicator {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            height: 4px;
+            background-color: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-red);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>ICT Club Vision</h1>
+                        <p>Empowering Africa's Digital Future</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="activities"><i class="fas fa-tasks"></i> Activities</a></li>
+                        <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-users"></i> About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="activities"><i class="fas fa-tasks"></i> Activities</a></li>
+                    <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-users"></i> About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="page-header">
+                <div class="container">
+                    <h2>Welcome to ICT Club Vision for Africa</h2>
+                    <p>Bridging the digital divide through education, innovation, and hands-on technology experience</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <!-- Image Slider -->
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');">
+                            <div class="slide-content">
+                                <h3>Digital Skills for Africa's Future</h3>
+                                <p>Empowering students with essential ICT skills to compete in the global digital economy and drive innovation across the continent</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="slide-content">
+                                <h3>Coding & Programming</h3>
+                                <p>Learning Python, JavaScript, Java, and other programming languages to solve real-world African challenges and create innovative solutions</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="slide-content">
+                                <h3>Robotics & AI</h3>
+                                <p>Exploring the exciting world of robotics, artificial intelligence, and machine learning to create smart solutions for African industries</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="slide-content">
+                                <h3>Digital Citizenship & Cybersecurity</h3>
+                                <p>Teaching responsible and ethical use of technology, online safety, data privacy, and cybersecurity fundamentals</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="slide-content">
+                                <h3>Tech Innovation Hub</h3>
+                                <p>Creating innovative solutions for African challenges in agriculture, healthcare, education, and sustainable development</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slider Navigation Buttons -->
+                    <button class="slider-nav-btn prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-nav-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                        <button class="slider-control active" data-slide="0"></button>
+                        <button class="slider-control" data-slide="1"></button>
+                        <button class="slider-control" data-slide="2"></button>
+                        <button class="slider-control" data-slide="3"></button>
+                        <button class="slider-control" data-slide="4"></button>
+                    </div>
+                </div>
+                
+                <!-- What is an ICT Club Section -->
+                <h2 class="section-title">About ICT Club Vision</h2>
+                <div class="info-section">
+                    <div class="info-card">
+                        <h3><i class="fas fa-desktop"></i> What is an ICT Club?</h3>
+                        <p>An ICT Club is a student organization that promotes digital literacy, coding skills, and technological innovation. Our club provides a platform for students to explore computer science, programming, robotics, and digital media in a collaborative environment.</p>
+                        <p>We aim to bridge the digital divide in African schools by providing access to technology and training that might not be available in standard curriculum. Our mission is to create a generation of digitally empowered African youth who can leverage technology to solve local challenges and compete globally.</p>
+                        <p>Since our establishment in 2023, we have trained over 20 students in various digital skills, participated in 3 competitions so far, and launched 3 community tech projects.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-tools"></i> Facilities & Equipment</h3>
+                        <p>Our ICT club is equipped with modern technology to facilitate learning and innovation:</p>
+                        <ul style="padding-left: 20px; margin: 15px 0;">
+                            <li><strong>30 high-performance computers</strong> with high-speed internet access</li>
+                            <li><strong>3D printer</strong> for prototyping and design projects</li>
+                            <li><strong>Arduino and Raspberry Pi kits</strong> for electronics and IoT projects</li>
+                            <li><strong>Programming kits</strong> for hands-on learning and competitions</li>
+                            <li><strong>Graphic design software</strong> (Adobe Creative Suite) and digital media tools</li>
+                            <li><strong>Video conferencing equipment</strong> for virtual collaborations with other African schools</li>
+                            <li><strong>VR headset</strong> for immersive learning experiences</li>
+                          
+                        </ul>
+                        <p>Our facilities are open Monday to Saturday for club members to work on projects, practice skills, and collaborate with peers.</p>
+                    </div>
+                </div>
+                
+                <!-- Teachers in Charge -->
+                <h2 class="section-title">Our Dedicated Teachers</h2>
+                <div class="info-card">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Teachers in Charge of ICT Club</h3>
+                    <p>Our dedicated and highly qualified ICT teachers provide guidance, mentorship, and technical expertise to club members. They are committed to fostering digital skills and innovation among African youth.</p>
+                    
+                    <div class="teacher-list">
+                        <div class="teacher">
+                            <div class="teacher-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="teacher-info">
+                                <h4>Mr. Ssekalala Charles</h4>
+                                <p>Head of ICT Department & Club Coordinator</p>
+                                <p class="specialization">MSc. Computer Science, University of Ghana</p>
+                                <p>Specialization: Programming & Web Development</p>
+                            </div>
+                        </div>
+                        <div class="teacher">
+                            <div class="teacher-img">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="teacher-info">
+                                <h4>Mr. Nicodemus.N</h4>
+                                <p>ICT Teacher & Computer Genius</p>
+                                <p class="specialization">BEd. ICT Education, University of Lagos</p>
+                                <p>Specialization: Digital Media & Graphic Design</p>
+                            </div>
+                        </div>
+                        <div class="teacher">
+                            <div class="teacher-img">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <div class="teacher-info">
+                                <h4>Mr. Ssekalala Charles</h4>
+                                <p>ICT Teacher & Technical Lead</p>
+                                <p class="specialization">BSc. Electrical Engineering, KNUST</p>
+                                <p>Specialization: Robotics, Hardware & Networking</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Headteacher Approval -->
+                <div class="approval-section">
+                    <div class="approval-content">
+                        <h3><i class="fas fa-stamp"></i> Official Approval & Endorsement</h3>
+                        <p>This ICT Club is officially approved and endorsed by the school administration as part of our commitment to digital education and 21st century skills development. The club operates under the guidelines and supervision of the school's academic board.</p>
+                        <p>Our ICT Club Vision for Africa initiative has received recognition from the Ministry of Education and several technology partners for its innovative approach to digital skills training in African schools.</p>
+                        
+                        <div class="headteacher-signature">
+                            <div class="signature-box">
+                                <p>Approved By:</p>
+                                <h4>Mrs.Edith Ntege</h4>
+                                <p>Headteacher</p>
+                                <p><i>Vision for Africa High School</i></p>
+                            </div>
+                            <div class="signature-box">
+                                <p>Date Established:</p>
+                                <h4>March 15, 2024</h4>
+                                <p>Club Registration No: ICT/AF/2020/045</p>
+                                <p><i>Ministry of Education Accredited</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Activities Page -->
+        <section id="activities" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h2>Club Activities & Events</h2>
+                    <p>Engaging in hands-on projects, competitions, tech tours, and skill-building workshops</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <!-- Tour Updates Section -->
+                <div class="tour-updates">
+                    <h3><i class="fas fa-bus"></i> Educational Tech Tours & Updates</h3>
+                    <p>Stay informed about our upcoming educational tours to tech companies, innovation hubs, universities, and tech expos across Africa. These tours provide real-world exposure to the technology industry.</p>
+                    
+                    <div class="update-item">
+                        <div class="update-date"><i class="far fa-calendar-alt"></i> Upcoming: Not Confirmed</div>
+                        <h4>Radio stations Tour, Uganda</h4>
+                        <p>We'll  visit Next Radio, NRG Radio, and several tech startups including Softwre institutions, Resevere Center, and the Freedom City. This tour will expose students to Kenya's vibrant tech ecosystem and potential career paths in technology.</p>
+                        <div class="update-highlight">
+                            <p><strong>Registration Deadline:</strong> March 15, 2026</p>
+                            <p><strong>Cost:</strong> 40UGX per student (includes transportation, accommodation, and meals)</p>
+                            <p><strong>Spaces Available:</strong> 62 students (first come, first served)</p>
+                        </div>
+                        <p><strong>Requirements:</strong> Must be an active club member with at least 75% attendance. Submit a one-page essay on "How Technology Can Solve African Challenges".</p>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-date"><i class="far fa-calendar-check"></i> Completed: October 28, 2025</div>
+                        <h4>New Vision Group, Kampala</h4>
+                        <p>Our recent tour to Google's Africa headquarters was a tremendous success! Students interacted with software engineers, learned about Google's initiatives in Africa, and participated in a coding workshop. They also got to experience the Google work environment and learn about career opportunities in tech giants.</p>
+                        <p><strong>Key Learnings:</strong> The importance of problem-solving skills, teamwork in tech projects, and continuous learning in the fast-evolving tech industry.</p>
+                        <p><strong>Next Tour:</strong> Planned for June 2026 to MTN Innovation Hub in Kampala</p>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-date"><i class="far fa-calendar-plus"></i> Planned: August 2023</div>
+                        <h4>University Computer Science Departments Tour</h4>
+                        <p>We're planning visits to computer science departments at University of Ghana, KNUST, and University of Lagos to give students a preview of tertiary education in technology fields. This will include attending lectures, visiting labs, and interacting with university students and professors.</p>
+                        <p><strong>Objectives:</strong> Help students make informed decisions about tech careers, understand university requirements, and get mentorship from current computer science students.</p>
+                    </div>
+                </div>
+                
+                <!-- Regular Activities -->
+                <h2 class="section-title">Regular Club Activities</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tag">Weekly Session</div>
+                            <h4>Coding & Programming</h4>
+                            <p>Every Tuesday and Thursday from 4:30-5:20 PM. Learn Python, JavaScript, Java, and web development basics. Work on real projects like building school websites and mobile apps.</p>
+                            <p><strong>Level:</strong> Beginner to Advanced tracks available</p>
+                            <p><strong>Next Competition:</strong> VFA Inter-Programming Competitions in February 2026</p>
+                            <p><strong>Next Project:</strong> School E-Learning Platform</p>
+                        </div>
+                    </div>
+                  
+                    
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tag">Creative Session</div>
+                            <h4>Digital Media & Design</h4>
+                            <p>Learn graphic design, video editing, animation, and digital storytelling using industry-standard software. Create content for school events and community awareness.</p>
+                            <p><strong>Software:</strong> Adobe Creative Suite, Blender, Canva</p>
+                            <p><strong>Project:</strong> Creating animations for STEM education</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tag">Monthly Workshop</div>
+                            <h4>Cybersecurity & Ethics</h4>
+                            <p>Monthly workshops on online safety, data privacy, ethical hacking fundamentals, and digital citizenship. Learn to protect yourself and others online.</p>
+                            <p><strong>Instructor:</strong> Guest experts from local IT security firms</p>
+                            <p><strong>Next Topic:</strong> Social Engineering Awareness</p>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tag">Creative Session</div>
+                            <h4>Digital skills</h4>
+                            <p>Learn Forex trading, Crypto currency, Account managment, and Content Creation for sale. Create content for school events and community awareness.</p>
+                            <p><strong>Software:</strong> Tradingview, Investing.com, Youtube</p>
+                            <p><strong>Project:</strong> Creating a community of informed students</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tag">Monthly Event</div>
+                            <h4>Tech Talk Fridays</h4>
+                            <p>Guest speakers from the tech industry share insights, career advice, and industry trends. Network with professionals and learn about various tech career paths.</p>
+                            <p><strong>Next Speaker:</strong> CEO of a local fintech startup</p>
+                            <p><strong>Previous Speaker:</strong> Software Engineer at Microsoft Africa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Annual Events -->
+                <div class="info-card" style="margin-bottom: 60px;">
+                    <h3><i class="fas fa-calendar-star"></i> Annual Club Events</h3>
+                    <p>Our club hosts several major events throughout the year that bring together students, teachers, and the community:</p>
+                    <ul style="padding-left: 20px; margin: 15px 0;">
+                        <li><strong>Africa Code Week (October):</strong> Week-long coding marathon and workshops</li>
+                        <li><strong>ICT Innovation Fair (March):</strong> Showcase student projects to the community</li>
+                        <li><strong>Digital Skills Competition (July):</strong> Inter-school competition in various tech categories</li>
+                        <li><strong>Graduation Ceremony (November):</strong> Recognize achievements of graduating members</li>
+                        <li><strong>Hackathon for Social Good (May):</strong> 24-hour coding event to solve community problems</li>
+                    </ul>
+                    <p>All club members are encouraged to participate in these events to build skills, network, and showcase their talents.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Us Page -->
+        <section id="about" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h2>About Our Club</h2>
+                    <p>Leadership, mission, guidelines, and our vision for ICT education in Africa</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <!-- Club Leaders -->
+                <div class="club-leaders">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Club Leadership</h2>
+                    <p>Our club is student-led with guidance from teacher advisors. The leadership team is elected annually by club members and is responsible for planning activities, managing resources, and representing the club.</p>
+                    
+                    <div class="leaders-grid">
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Oluka Shadrack</h4>
+                            <div class="leader-role">Club President</div>
+                            <p>Form 4 Science student</p>
+                            <p>Responsible for overall club direction, external partnerships, and representing the club at school events. Leads executive meetings and coordinates with teachers.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <h4>Tumwebaze Jonna</h4>
+                            <div class="leader-role">Vice President</div>
+                            <p>Form 4 Business Student</p>
+                            <p>Manages internal operations, member relations, and event planning. Assists the president and takes charge in their absence.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Nsamba Phillips</h4>
+                            <div class="leader-role">Male Mobiliser</div>
+                            <p>Form 4 Science Student</p>
+                            <p>Oversees all club projects and competitions. Coordinates project teams, sets timelines, and ensures successful completion of initiatives.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-money-check-alt"></i>
+                            </div>
+                            <h4>Kigozi Hansel</h4>
+                            <div class="leader-role">Treasurer</div>
+                            <p>Form 4 Art Student</p>
+                            <p>Manages club finances, fundraising activities, and budget planning. Keeps financial records and provides reports to the executive committee.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <h4>John Kamau</h4>
+                            <div class="leader-role">Female Mobiliser</div>
+                            <p>Form 2  Student</p>
+                            <p>Handles club communications, social media, and promotion of events. Creates posters, manages the club website, and writes newsletters.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <div class="leader-img">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h4>Aisha Bello</h4>
+                            <div class="leader-role">Secretary</div>
+                            <p>Form 2  Student</p>
+                            <p>Maintains club records, takes meeting minutes, and handles correspondence. Manages member registration and attendance records.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Terms and Conditions -->
+                <div class="terms-section">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Club Terms & Conditions</h2>
+                    <p>By joining ICT Club Vision for Africa, members agree to adhere to the following terms and conditions that ensure a productive, safe, and inclusive environment for all.</p>
+                    
+                    <div class="terms-content">
+                        <h4>1. Membership Eligibility</h4>
+                        <p>Open to all students from Form 1 to Form 6. No prior ICT experience required. Members must maintain good academic standing and follow all school rules. Membership renewal is required at the beginning of each academic year.</p>
+                        
+                        <h4>2. Code of Conduct</h4>
+                        <p>All members must adhere to the following:
+                        <ul>
+                            <li>Use club equipment responsibly, ethically, and only for educational purposes</li>
+                            <li>Respect other members, teachers, and guest speakers regardless of skill level</li>
+                            <li>Adhere to copyright and intellectual property laws in all projects</li>
+                            <li>Maintain a positive, inclusive, and collaborative learning environment</li>
+                            <li>Report any equipment issues or safety concerns immediately to club leadership or teachers</li>
+                            <li>No bullying, discrimination, or harassment of any form will be tolerated</li>
+                        </ul>
+                        </p>
+                        
+                        <h4>3. Attendance Policy</h4>
+                        <p>Members are expected to attend at least 60% of scheduled meetings and activities. Excessive absences without valid reason may result in suspension of equipment borrowing privileges. Members must sign in at each meeting for attendance records.</p>
+                        
+                        <h4>4. Equipment Use & Responsibility</h4>
+                        <p>Club equipment is for educational purposes only during club hours or with special permission. Members are financially responsible for any damage caused by negligence or misuse. All equipment must be signed out and returned in the same condition. Food and drinks are strictly prohibited near computers and electronic equipment.</p>
+                        
+                        <h4>5. Data Privacy & Online Safety</h4>
+                        <p>Member information will be kept confidential and used only for club purposes. Photos and videos may be taken during club activities for promotional materials with consent. Members must practice safe online behavior and protect personal information. Cyberbullying or inappropriate online behavior will result in immediate expulsion.</p>
+                        
+                        <h4>6. Safety Guidelines</h4>
+                        <p>All safety protocols must be followed, especially when working with electronics, soldering equipment, or power tools. Emergency procedures are posted in the club room and must be reviewed annually. First aid kit is available in the club room for minor injuries. Serious incidents must be reported immediately to club teachers.</p>
+                        
+                        <h4>7. Project Ownership & Intellectual Property</h4>
+                        <p>Projects created using club resources belong to both the creator and the club. The club reserves the right to showcase projects for promotional purposes. Members must give credit to all contributors in group projects. Commercial use of projects developed with club resources requires club approval.</p>
+                        
+                        <h4>8. Disciplinary Action</h4>
+                        <p>Violation of club rules may result in:
+                        <ul>
+                            <li>Verbal warning and counseling</li>
+                            <li>Written warning with parent/guardian notification</li>
+                            <li>Temporary suspension from club activities (1-4 weeks)</li>
+                            <li>Permanent expulsion from the club</li>
+                            <li>Financial responsibility for damages or losses caused</li>
+                            <li>Reporting to school administration for serious violations</li>
+                        </ul>
+                        </p>
+                        
+                        <h4>9. Amendments to Terms</h4>
+                        <p>These terms may be amended by the club leadership with approval from teacher advisors and majority vote from active members. Members will be notified of any changes at least one week before they take effect. Current terms are always available on the club website and notice board.</p>
+                    </div>
+                </div>
+                
+                <!-- Mission and Vision -->
+                <div class="info-section" style="margin-bottom: 60px;">
+                    <div class="info-card">
+                        <h3><i class="fas fa-bullseye"></i> Our Vision & Mission</h3>
+                        <p><strong>Vision:</strong> To create a generation of digitally literate African youth who can leverage technology to solve local challenges, drive innovation, and compete globally in the digital economy.</p>
+                        <p><strong>Mission:</strong> To provide accessible, practical ICT education, hands-on experience with emerging technologies, and mentorship opportunities that prepare students for careers in the digital economy while fostering innovation and entrepreneurship.</p>
+                        <p><strong>Core Values:</strong> Innovation, Collaboration, Integrity, Excellence, Digital Citizenship, and Inclusivity.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-history"></i> Club History & Achievements</h3>
+                        <p>Founded in March 2023 with just 6 members, ICT Club Vision has grown to over 70 active members across all forms. Our achievements include:</p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>Developed 2 two websites for local community use</li>
+                            <li>Created an online inTakes</li>
+                            <li>Partnered with 3 tech companies for mentorship</li>
+                            <li>Featured in local media for community tech projects</li>
+                        </ul>
+                        <p>We continue to expand our reach and impact through innovative programs and partnerships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       
+        
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with ICT Club Vision for Africa - We'd love to hear from you!</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="contact-form">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="membership">Membership Inquiry</option>
+                                <option value="tour">Tour Information</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="donation">Equipment Donation</option>
+                                <option value="volunteer">Volunteer Interest</option>
+                                <option value="speaker">Guest Speaker Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="message" class="form-control" rows="6" placeholder="Enter your message here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+                
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Location & Hours</h3>
+                        <p><strong>ICT Club Vision for Africa</strong></p>
+                        <p>ICT lab, Room 2</p>
+                        <p>Vision For Africa High School, Nakifuma</p>
+                        <p>Centrl Region, Uganda</p>
+                        <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--medium-gray);">
+                        <p><strong>Meeting Times:</strong></p>
+                        <p>Tuesdays : 4:10 PM - 5:00 PM</p>
+                        <p>Special Sessions: As announced on notice board</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Contact Details</h3>
+                        <p><strong>Email:</strong> ictclubafrica@gmail.com</p>
+                        <p><strong>Phone:</strong> +256 773 917 289</p>
+                        <p><strong>Club Advisor:</strong>  Elisha.K</p>
+                        <p><strong>Club President:</strong> Oluka Shaddrack</p>
+                        <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--medium-gray);">
+                        <p><strong>Social Media:</strong></p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                        <p><strong>Q: Who can join the ICT Club?</strong></p>
+                        <p>A: Any student from Form 1 to Form 6, regardless of prior ICT experience.</p>
+                        
+                        <p><strong>Q: Is there a membership fee?</strong></p>
+                        <p>A: Yes, membership is 5k for all students. Some activities like tours may have minimal costs.</p>
+                        
+                        <p><strong>Q: When are new members accepted?</strong></p>
+                        <p>A: We accept new members at the beginning of each term. Orientation sessions are held in September, January, and April.</p>
+                        
+                        <p><strong>Q: Can I borrow club equipment?</strong></p>
+                        <p>A: Yes, active members can borrow certain equipment for projects with permission from club teachers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ICT Club Vision</h3>
+                    <p>Empowering the next generation of African tech innovators through hands-on learning, digital skills development, and community engagement. Together, we're building Africa's digital future.</p>
+                    <p>Part of the African Digital Education Initiative since 2024.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="nav-link" data-page="home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="activities"><i class="fas fa-chevron-right"></i> Activities</a></li>
+                        <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Partners</h3>
+                    <p>We gratefully acknowledge support from our valued partners:</p>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-handshake"></i> Ministry of Education</a></li>
+                        <li><a href="forexcity.edgeone.dev"><i class="fas fa-handshake"></i>Forex City Foundation</a></li>
+                        <li><a href="citygroups.edgeone.dev"><i class="fas fa-handshake"></i> City Groups of Companies</a></li>
+                        <li><a href="citymarketing.edgeone.app"><i class="fas fa-handshake"></i> City Marketing</a></li>
+                        <li><a href="cityforexacademy.edgeone.dev"><i class="fas fa-handshake"></i> City Forex Academy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our monthly newsletter to stay updated on club activities, events, and tech news.</p>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <input type="email" class="form-control" placeholder="Your email address" style="margin-bottom: 10px;">
+                        <button class="btn" style="width: 100%;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 ICT Club Vision for Africa. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary-red);"></i> for Africa's digital future</p>
+                <p>VFA High School, Nakifuma, Uganda | Email: ictclubafrica@gmail.com | Phone: +256773917289</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            // Function to switch pages
+            function switchPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Close mobile menu if open
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                }
+                
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Add click event to all nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                });
+            });
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Change icon based on menu state
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target) && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+            
+            // Image slider functionality
+            const slider = document.querySelector('.slider');
+            const sliderControls = document.querySelectorAll('.slider-control');
+            const prevBtn = document.querySelector('.slider-nav-btn.prev');
+            const nextBtn = document.querySelector('.slider-nav-btn.next');
+            let currentSlide = 0;
+            const totalSlides = 5;
+            let slideInterval;
+            
+            // Function to update slider position
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 20}%)`;
+                
+                // Update active control
+                sliderControls.forEach((control, index) => {
+                    if (index === currentSlide) {
+                        control.classList.add('active');
+                    } else {
+                        control.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Function to go to next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }
+            
+            // Function to go to previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+            
+            // Add click event to slider controls
+            sliderControls.forEach((control, index) => {
+                control.addEventListener('click', function() {
+                    currentSlide = index;
+                    updateSlider();
+                    resetSlideInterval();
+                });
+            });
+            
+            // Add click event to navigation buttons
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetSlideInterval();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                resetSlideInterval();
+            });
+            
+            // Auto-advance slides every 5 seconds
+            function startSlideInterval() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function resetSlideInterval() {
+                clearInterval(slideInterval);
+                startSlideInterval();
+            }
+            
+            startSlideInterval();
+            
+            // Pause auto-slide on hover
+            const sliderContainer = document.querySelector('.slider-container');
+            sliderContainer.addEventListener('mouseenter', function() {
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', function() {
+                startSlideInterval();
+            });
+            
+            // Back to top button functionality
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple validation
+                    if (name && email && subject && message) {
+                        // In a real application, you would send this data to a server
+                        alert(`Thank you ${name}! Your message has been sent successfully. We'll contact you at ${email} within 2-3 business days.`);
+                        contactForm.reset();
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            }
+            
+            // Initialize the first page as active
+            switchPage('home');
+        });
+    </script>
+</body>
+</html>
